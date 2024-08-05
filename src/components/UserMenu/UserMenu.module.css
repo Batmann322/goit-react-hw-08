@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #d32f2f;
+}
