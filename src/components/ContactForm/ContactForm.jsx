@@ -1,8 +1,12 @@
 import { useFormik } from "formik";
+import { useDispatch } from "react-redux";
 import * as Yup from "yup";
+import { addContacts } from "../../redux/contacts/operations";
 import styles from "./ContactForm.module.css";
 
 export default function ContactForm() {
+  const dispatch = useDispatch();
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -12,10 +16,10 @@ export default function ContactForm() {
       name: Yup.string().required("Required"),
       number: Yup.string().required("Required"),
     }),
-    // onSubmit: (values, { resetForm }) => {
-    //   dispatch(addContact(values));
-    //   resetForm();
-    // },
+    onSubmit: (values, { resetForm }) => {
+      dispatch(addContacts(values));
+      resetForm();
+    },
   });
 
   return (

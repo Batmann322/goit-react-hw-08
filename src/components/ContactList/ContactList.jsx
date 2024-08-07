@@ -3,10 +3,9 @@ import { deleteContacts } from "../../redux/contacts/operations";
 import { selectFilteredContacts } from "../../redux/contacts/selectors";
 import styles from "./ContactList.module.css";
 
-export default function ContactList({ id }) {
+export default function ContactList() {
   const contacts = useSelector(selectFilteredContacts);
   const dispatch = useDispatch();
-  const handleDelete = () => dispatch(deleteContacts(id));
 
   return (
     <ul className={styles.list}>
@@ -15,7 +14,7 @@ export default function ContactList({ id }) {
           <p>
             {name}: {number}
           </p>
-          <button onClick={handleDelete}>Delete</button>
+          <button onClick={() => dispatch(deleteContacts(id))}>Delete</button>
         </li>
       ))}
     </ul>
